@@ -1,10 +1,11 @@
 from argparse import ArgumentParser
-from embeddings_to_rgb import embeddings_to_rgb
-from DimensionalityReducer import REDUCTION_METHODS
-from display import colour_string, data_to_image
-from text_processing import NLTK_TEXT_CHOICES
 import os
 import sys
+# own imports
+from scripts.embeddings_to_rgb import embeddings_to_rgb
+from scripts.DimensionalityReducer import REDUCTION_METHODS
+from scripts.display import colour_string, data_to_image
+from scripts.text_processing import NLTK_TEXT_CHOICES
 
 def main():
     a = ArgumentParser()
@@ -27,7 +28,7 @@ def main():
     if save and not out_path:
         save_location = f'plots/{os.path.splitext(text)[0]}.png'
     
-    tokens, word_rgb_values = embeddings_to_rgb(text, n_tokens, save_location, punctuation, reduction_method)
+    tokens, word_rgb_values = embeddings_to_rgb(text, n_tokens, punctuation, reduction_method)
     if display_text:
         print(colour_string(tokens, word_rgb_values))
 

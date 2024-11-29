@@ -4,8 +4,8 @@ import sys
 from tqdm import tqdm
 
 # own imports:
-from text_processing import get_tokens
-from DimensionalityReducer import DimensionalityReducer
+from scripts.text_processing import get_tokens
+from scripts.DimensionalityReducer import DimensionalityReducer
 
 model = spacy.load('en_core_web_lg')
 
